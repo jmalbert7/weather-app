@@ -1,16 +1,30 @@
 <!DOCUMENT html>
 <html>
-    <!-- Start Document Head-->
+    <!--Start Document Head-->
     <head>
+        <meta charset="UTF-8"/>
         <title>JMA Penrod Weather</title>
+        <!--needed to move assets folder into same folder as index.html to get stylesheets to link
+        https://www.lightningdesignsystem.com/platforms/heroku/ for guidance on set-up-->
         <link rel="stylesheet" type="text/css" href="/assets/styles/salesforce-lightning-design-system.css"/>
     </head>
 
-    <!-- Start Document Body-->
+    <!--Start Document Body-->
     <body>
-        <h1 class="slds-align_absolute-center" style="height:5rem">Hello World</h1>
-        <h2>This is Jessica</h2>
-        <h2>committing to gh-pages</h2>
+        <!--Start Header-->
+        <header>
+            <div>
+                <nav>
+                    <ul>
+                        <!--Links in Header to navigate to specific city, triggers API call for city ID-->
+                        <li><a href= "https://penrod.co">Milwaukee</a></li>
+                        <li><a href= "https://penrod.co">Minneapolis</a></li>
+                        <li><a href= "https://penrod.co">Chicago</a></li>
+                        <li><a href= "https://penrod.co">Dallas</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
     </body>
 
 </html>
