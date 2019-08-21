@@ -1,6 +1,6 @@
 <!DOCUMENT html>
 <html>
-    <!--Start Document Head-->
+    <!--Start Landing Page Document Head-->
     <head>
         <meta charset="UTF-8"/>
         <title>JMA Penrod Weather</title>
@@ -12,23 +12,31 @@
     <!--Start Document Body-->
     <body>
         <div id="root"></div>
+
+        <!--Access to private API key https://gist.github.com/derzorngottes/3b57edc1f996dddcab25-->
         <script type = "text/javascript" src = "config.js"></script>
-        <script src="scripts.js"></script>
+        <script type = "text/javascript" src= "scripts.js"></script>
 
         <!--Start Header-->
         <header>
-            <div>
-                <nav>
-                    <ul>
-                        <!--Links in Header to navigate to specific city, triggers API call for city ID-->
-                        <li><a href= "https://penrod.co">Milwaukee</a></li>
-                        <li><a href= "https://penrod.co">Minneapolis</a></li>
-                        <li><a href= "https://penrod.co">Chicago</a></li>
-                        <li><a href= "https://penrod.co">Dallas</a></li>
-                    </ul>
-                </nav>
-            </div>
+            <h1>Welcome to Penrod!</h1>
         </header>
+        <body>
+            <div>
+                    <!--<nav>-->
+                        <select id ="city" onchange="getData()">
+                            <option>Select your city</option>
+                            <option value = "Milwaukee">Milwaukee</option>
+                            <option value = "Minneapolis">Minneapolis</option>
+                            <option value = "Chicago">Chicago</option>
+                            <option value = "Dallas">Dallas</option>
+                        </select>
+                        <p id = "printCity"></p>
+
+                        
+                    <!--<nav>-->                    
+                </div>
+        </body>
     </body>
 
 </html>
