@@ -23,8 +23,7 @@ function getData(){
     var selection = document.getElementById("city").value;
     var cityID = getCityID(selection);
 
-    //request.open('GET', 'api.openweathermap.org/data/2.5/weather?id=' + cityID + 'APPID=' + apikey, true);
-    request.open('GET', 'http://api.openweathermap.org/data/2.5/weather?id=5263045&APPID=61234ef415646940732b8dba86cfb345', true);
+    request.open("GET", "http://api.openweathermap.org/data/2.5/weather?id=" + cityID + "&APPID=" + apikey, true);
     request.onload = function() {
         var data = JSON.parse(this.response);
         if(request.status >= 200 && request.status < 400){
