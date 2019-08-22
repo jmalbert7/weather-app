@@ -19,23 +19,43 @@
 
         <!--Start Header-->
         <header>
-            <h1>Welcome to Penrod!</h1>
+            <h1>Welcome to the Penrod Weather Portal!</h1>
         </header>
         <body>
-            <div>
-                    <!--<nav>-->
-                        <select id ="city" onchange="getData()">
-                            <option>Select your city</option>
-                            <option value = "Milwaukee">Milwaukee</option>
-                            <option value = "Minneapolis">Minneapolis</option>
-                            <option value = "Chicago">Chicago</option>
-                            <option value = "Dallas">Dallas</option>
-                        </select>
-                        <p id = "printCity"></p>
+            <!--Build the navigation bar, refer to https://www.lightningdesignsystem.com/components/global-navigation/-->
+            <div class="slds-context-bar">
+                <div class="slds-context-bar__primary">
+                    <div class="slds-context-bar__item slds-context-bar__dropdown-trigger slds-dropdown-trigger slds-dropdown-trigger_click slds-no-hover">
+                        <div class="slds-context-bar__icon-action slds-is-active">
+                                <!--Image source pulled from Penrod.co source code-->
+                               <img src="https://dj34aghzwe-flywheel.netdna-ssl.com/wp-content/uploads/2019/05/cropped-Penrod_Fav-32x32.png" alt="Penrod Logo Small">
+                        </div>
+                        <span class="slds-context-bar__label-action slds-context-bar__app-name slds-is-active">
+                                <span class="slds-truncate" title="App Name">Penrod Weather</span>
+                        </span>
+                    </div>
 
-                        
-                    <!--<nav>-->                    
                 </div>
+                <nav class="slds-context-bar__secondary" role="navigation" >
+                    <ul class="slds-grid">
+                        <li class="slds-context-bar__item slds-is-active slds-border_right slds-border_left">
+                            <span class="slds-truncate slds-p-vertical_small slds-p-horizontal_small" title="Milwaukee" onclick = "getData(this)">Milwaukee</span>
+                        </li>
+                        <li class="slds-context-bar__item slds-is-active slds-border_right">
+                            <span  class="slds-truncate slds-p-vertical_small slds-p-horizontal_small" title="Minneapolis" onclick = "getData(this)">Minneapolis</span>
+                        </li>
+                        <li class="slds-context-bar__item slds-is-active slds-border_right">
+                            <span  class="slds-truncate slds-p-vertical_small slds-p-horizontal_small" title="Chicago" onclick = "getData(this)">Chicago</span>
+                        </li>
+                        <li class="slds-context-bar__item slds-is-active slds-border_right">
+                            <span class="slds-truncate slds-p-vertical_small slds-p-horizontal_small" title="Dallas" onclick = "getData(this)">Dallas</span>
+                        </li>
+                    </ul>
+                </nav>
+                <section>
+                     <p id = "printCity"></p>
+                </section>
+            </div>
         </body>
     </body>
 

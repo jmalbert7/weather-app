@@ -16,11 +16,12 @@ function getCityID(cityName){
         return null;
 }
 
-function getData(){
+function getData(city){
     var request = new XMLHttpRequest();
     var apikey = config.OPEN_WEATHER_KEY;
     
-    var selection = document.getElementById("city").value;
+    //var selection = document.getElementById("city").title;
+    var selection = city.title;
     var cityID = getCityID(selection);
 
     request.open("GET", "http://api.openweathermap.org/data/2.5/weather?id=" + cityID + "&APPID=" + apikey, true);
@@ -28,7 +29,9 @@ function getData(){
         var data = JSON.parse(this.response);
         if(request.status >= 200 && request.status < 400){
             //console.log(data.weather[0].main);
+            //console.log(data.coord.lon);
             document.getElementById("printCity").innerHTML = "You selected:" + selection + ". The weather is " + data.weather[0].main;
+            data = "";
         }
         else
             //console.log('error');
