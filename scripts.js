@@ -19,11 +19,21 @@ function getCityID(cityName){
         return null;
 }
 
+/*************************getData(city)**********************************
+ * Description: This function makes a new http request and makes a call to
+ * the Open Weather API. The API call is built by cocatenating the cityID,
+ * the API key (which is stored in a private file) and in indicator to the
+ * API to return the temperature in Fahrenheit. The function then parses
+ * the JSON returned by the API to get the desired data (condition, temp)
+ * Arguments: city - link clicked by user, used to get city namew
+ * Output: https request is made to the Open Weather API. Data is returned 
+ * from PAI and passed as arguments to the functions displayImage() and
+ * displayConditions().
+ ****************************************************************************/
 function getData(city){
     var request = new XMLHttpRequest();
     var apikey = config.OPEN_WEATHER_KEY;
     
-    //var selection = document.getElementById("city").title;
     var selection = city.title;
     var cityID = getCityID(selection);
     var weatherMain, temperatureF, humidity;
@@ -37,14 +47,26 @@ function getData(city){
             temperatureF = data.main.temp;
             displayImage(selection, weatherMain);
             displayConditions(selection, temperatureF, weatherMain);
-            data = "";
+            data = "";  //clear data for an additional API call
         }
         else
-            document.getElementById("printCity").innerHTML = "error";
+            document.getElementById("printError").innerHTML = "error";
     }
     request.send();
 }
 
+/*************************displayImage(city, currentWeather)*****************
+ * Description: This function takes the selected city and the current weather
+ * condition in that city (Clear, Clouds, Rain, Snow) and displays the 
+ * appropriate image.
+ * Arguments: city, currentWeather: both passed from getData() which pulls
+ * data from the Open Weather API
+ * Output: A picture of the city experiencing the current weather condition 
+ * is displayed
+ * Things I would re-factor: Consider creating a hash table to access the 
+ * correct image instead of if/else ifs. Consider finding an API that 
+ * would display a live video feed of the city skyline.
+ ****************************************************************************/
 function displayImage(city, currentWeather){
     //Realized that if another city is clicked without refreshing the page that images continue to append. Called 
     //on Stack Overflow to help me resolve this issue
@@ -118,10 +140,10 @@ function displayImage(city, currentWeather){
         img.src = ' ';
     }
     img.alt = "current weather image"
+    //attempted to make size fixed...this changed the size of each image but did not make the size constant across all images
     img.height = "500";
     img.width = "700";
     document.getElementById("weather-img").appendChild(img);
-    
 }
 
 function displayConditions(city, temp, condition){
