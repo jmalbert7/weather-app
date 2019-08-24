@@ -1,15 +1,78 @@
-<!DOCUMENT html>
+<!DOCTYPE html>
 <html>
-    <!-- Start Document Head-->
+    <!--Start Landing Page Document Head-->
     <head>
+        <meta charset="UTF-8"/>
         <title>JMA Penrod Weather</title>
+        <!--needed to move assets folder into same folder as index.html to get stylesheets to link
+        https://www.lightningdesignsystem.com/platforms/heroku/ for guidance on set-up-->
         <link rel="stylesheet" type="text/css" href="/assets/styles/salesforce-lightning-design-system.css"/>
     </head>
 
-    <!-- Start Document Body-->
+    <!--Start Document Body-->
     <body>
-        <h1>Hello World</h1>
-        <h2>This is Jessica</h2>
+        <!--Access to private API key https://gist.github.com/derzorngottes/3b57edc1f996dddcab25-->
+        <script type = "text/javascript" src = "config.js"></script>
+        <script type = "text/javascript" src= "scripts.js"></script>
+
+        <!--Start Header-->
+        <header class="slds-global-header_container">
+            <div class = "slds-global-header">
+                <div>
+                    <h1 class="slds-text-heading_large slds-">Welcome to the Penrod Weather Portal!</h1>
+                </div>
+            </div>
+        </header>
+        <body class="slds-m-top_xx-large slds-p-top_xx-small">
+        <!--Navigation bar, refer to https://www.lightningdesignsystem.com/components/global-navigation/-->
+            <div class="slds-context-bar">
+                <div class="slds-context-bar__primary">
+                    <div class="slds-context-bar__item slds-context-bar__dropdown-trigger slds-dropdown-trigger slds-dropdown-trigger_click slds-no-hover">
+                        <div class="slds-context-bar__icon-action slds-is-active">
+                                <!--Image source pulled from Penrod.co source code-->
+                               <img src="https://dj34aghzwe-flywheel.netdna-ssl.com/wp-content/uploads/2019/05/cropped-Penrod_Fav-32x32.png" alt="Penrod Logo Small">
+                        </div>
+                        <span class="slds-context-bar__label-action slds-context-bar__app-name slds-is-active">
+                                <span class="slds-truncate" title="App Name">Penrod Weather</span>
+                        </span>
+                    </div>
+
+                </div>
+                <nav class="slds-context-bar__secondary" role="navigation" >
+                    <ul class="slds-grid">
+                        <li class="slds-context-bar__item slds-is-active slds-border_right slds-border_left">
+                            <span class="slds-truncate slds-p-vertical_small slds-p-horizontal_small" title="Milwaukee" onclick = "getData(this)">Milwaukee</span>
+                        </li>
+                        <li class="slds-context-bar__item slds-is-active slds-border_right">
+                            <span  class="slds-truncate slds-p-vertical_small slds-p-horizontal_small" title="Minneapolis" onclick = "getData(this)">Minneapolis</span>
+                        </li>
+                        <li class="slds-context-bar__item slds-is-active slds-border_right">
+                            <span  class="slds-truncate slds-p-vertical_small slds-p-horizontal_small" title="Chicago" onclick = "getData(this)">Chicago</span>
+                        </li>
+                        <li class="slds-context-bar__item slds-is-active slds-border_right">
+                            <span class="slds-truncate slds-p-vertical_small slds-p-horizontal_small" title="Dallas" onclick = "getData(this)">Dallas</span>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <article class="slds-card">
+                <div class="slds-card__header slds-grid">
+                    <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                        <div class="slds-media__body">
+                            <h2 class="slds-card__header-title">
+                                <span id="weather-title"></span>
+                            </h2>
+                        </div>
+
+                    </header>
+
+                </div>
+                <div id="weather-img" class="slds-card__body slds-m-bottom_large"></div>
+            </article>
+        </body>
+        <footer>
+            
+        </footer>
     </body>
 
 </html>
